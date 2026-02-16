@@ -117,11 +117,11 @@ const DoctorRequestForm = ({ onClose }: DoctorRequestFormProps) => {
   }
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-3 sm:p-4 overflow-y-auto">
+    <div className="fixed inset-0 bg-black/50 flex items-start sm:items-center justify-center z-50 overflow-y-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-card rounded-xl sm:rounded-2xl shadow-2xl max-w-2xl w-full my-4 sm:my-8"
+        className="bg-card rounded-xl sm:rounded-2xl shadow-2xl max-w-2xl w-full m-3 sm:m-4 my-4 sm:my-8"
       >
         <div className="p-4 sm:p-6 border-b border-border flex items-center justify-between sticky top-0 bg-card z-10 rounded-t-xl sm:rounded-t-2xl">
           <div className="flex items-center gap-2 sm:gap-3">
@@ -317,7 +317,7 @@ const DoctorRequestForm = ({ onClose }: DoctorRequestFormProps) => {
             </div>
           </div>
 
-          <div className="flex flex-col-reverse sm:flex-row gap-2.5 sm:gap-3 pt-3 sm:pt-4 sticky bottom-0 bg-card pb-1">
+          <div className="flex flex-col-reverse sm:flex-row gap-2.5 sm:gap-3 pt-3 sm:pt-4">
             <button
               type="button"
               onClick={onClose}
