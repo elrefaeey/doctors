@@ -1,0 +1,98 @@
+{
+  "plans": [
+    {
+      "name": "Basic Plan",
+      "nameAr": "الخطة الأساسية",
+      "price": 0,
+      "duration": 30,
+      "color": "#6B7280",
+      "icon": "package",
+      "popular": false,
+      "features": [
+        "Profile Display",
+        "Basic Contact Info",
+        "Search Results"
+      ],
+      "featuresAr": [
+        "عرض الملف الشخصي",
+        "معلومات الاتصال الأساسية",
+        "ظهور في نتائج البحث"
+      ]
+    },
+    {
+      "name": "Silver Plan",
+      "nameAr": "الخطة الفضية",
+      "price": 499,
+      "duration": 30,
+      "color": "#C0C0C0",
+      "icon": "shield",
+      "popular": false,
+      "features": [
+        "All Basic Features",
+        "Online Booking System",
+        "Appointment Management",
+        "Booking Notifications",
+        "Enhanced Profile Page"
+      ],
+      "featuresAr": [
+        "جميع مميزات الخطة الأساسية",
+        "نظام الحجز الإلكتروني",
+        "إدارة المواعيد",
+        "إشعارات الحجوزات",
+        "صفحة ملف شخصي محسّنة"
+      ]
+    },
+    {
+      "name": "Gold Plan",
+      "nameAr": "الخطة الذهبية",
+      "price": 999,
+      "duration": 30,
+      "color": "#FFD700",
+      "icon": "crown",
+      "popular": true,
+      "features": [
+        "All Silver Features",
+        "Featured Doctors Section",
+        "Priority in Search Results",
+        "Patient Chat System",
+        "Advanced Reports & Analytics",
+        "Premium Support"
+      ],
+      "featuresAr": [
+        "جميع مميزات الخطة الفضية",
+        "ظهور في الأطباء المميزين",
+        "أولوية في نتائج البحث",
+        "نظام المحادثة مع المرضى",
+        "تقارير وإحصائيات متقدمة",
+        "دعم فني مميز"
+      ]
+    },
+    {
+      "name": "Platinum Plan",
+      "nameAr": "الخطة البلاتينية",
+      "price": 1499,
+      "duration": 30,
+      "color": "#4F46E5",
+      "icon": "star",
+      "popular": false,
+      "features": [
+        "All Gold Features",
+        "Homepage Featured Spot",
+        "Verified Doctor Badge",
+        "Custom Advertising",
+        "Advanced Patient Analytics",
+        "24/7 Premium Support",
+        "Medical Team Management"
+      ],
+      "featuresAr": [
+        "جميع مميزات الخطة الذهبية",
+        "ظهور دائم في الصفحة الرئيسية",
+        "شارة طبيب موثق",
+        "إعلانات مخصصة",
+        "تحليلات متقدمة للمرضى",
+        "دعم فني على مدار الساعة",
+        "إدارة فريق طبي"
+      ]
+    }
+  ]
+}

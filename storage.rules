@@ -1,0 +1,37 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+    
+    function isAdmin() {
+      return isSignedIn() && 
+             firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    // Doctor profile photos
+    match /doctors/{doctorId}/{allPaths=**} {
+      allow read: if true; // Public read for profile photos
+      allow write: if isOwner(doctorId) || isAdmin(); // Only doctor or admin can upload
+    }
+    
+    // Patient profile photos
+    match /patients/{patientId}/{allPaths=**} {
+      allow read: if true; // Public read
+      allow write: if isOwner(patientId) || isAdmin();
+    }
+    
+    // General uploads (admin only)
+    match /uploads/{allPaths=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+  }
+}

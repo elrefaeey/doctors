@@ -1,0 +1,66 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper function
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    // Users - authenticated users can read/write their own data
+    match /users/{userId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn();
+      allow update: if isSignedIn() && request.auth.uid == userId;
+      allow delete: if false;
+    }
+    
+    // Doctors - PUBLIC READ (for search)
+    match /doctors/{doctorId} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+    
+    // Appointments - authenticated users only
+    match /appointments/{appointmentId} {
+      allow read: if isSignedIn();
+      allow write: if isSignedIn();
+    }
+    
+    // Pending requests - authenticated users only
+    match /pendingRequests/{requestId} {
+      allow read: if isSignedIn();
+      allow write: if isSignedIn();
+    }
+    
+    // Subscription plans - PUBLIC READ
+    match /subscriptionPlans/{planId} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+    
+    // Specializations - PUBLIC READ
+    match /specializations/{specId} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+    
+    // Translations - PUBLIC READ
+    match /translations/{lang} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+    
+    // Notifications - authenticated users only
+    match /notifications/{notificationId} {
+      allow read: if isSignedIn();
+      allow write: if isSignedIn();
+    }
+    
+    // Reviews - PUBLIC READ
+    match /reviews/{reviewId} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+  }
+}
