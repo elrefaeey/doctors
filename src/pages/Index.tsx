@@ -7,7 +7,6 @@ import Layout from '@/components/Layout';
 import { Search, UserCheck, Calendar, ShieldCheck, Star, Award, HeartHandshake } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import heroImg from '@/assets/hero-medical.jpg';
 
 const Index = () => {
   const { t, language } = useLanguage();
@@ -15,7 +14,7 @@ const Index = () => {
   const [featuredDoctors, setFeaturedDoctors] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [heroImages, setHeroImages] = useState<(string | { url: string; link: string })[]>([
-    heroImg,
+    'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1920&q=80', // Medical hero
     'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&q=80', // Medical team
     'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1920&q=80', // Doctor consultation
   ]);
