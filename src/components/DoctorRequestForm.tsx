@@ -117,40 +117,40 @@ const DoctorRequestForm = ({ onClose }: DoctorRequestFormProps) => {
   }
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-start sm:items-center justify-center z-50 overflow-y-auto">
+    <div className="fixed inset-0 bg-black/60 flex items-start justify-center z-50 overflow-y-auto pt-2 sm:pt-0 sm:items-center">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-card rounded-xl sm:rounded-2xl shadow-2xl max-w-2xl w-full m-3 sm:m-4 my-4 sm:my-8"
+        className="bg-card rounded-t-2xl sm:rounded-2xl shadow-2xl max-w-2xl w-full min-h-[calc(100vh-8px)] sm:min-h-0 sm:m-4 sm:my-8"
       >
-        <div className="p-4 sm:p-6 border-b border-border flex items-center justify-between sticky top-0 bg-card z-10 rounded-t-xl sm:rounded-t-2xl">
-          <div className="flex items-center gap-2 sm:gap-3">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-              <Stethoscope size={20} className="text-primary sm:w-5 sm:h-5" />
+        <div className="px-3 py-2.5 sm:p-6 border-b border-border flex items-center justify-between sticky top-0 bg-card z-10 rounded-t-2xl">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <Stethoscope className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
             </div>
-            <h2 className="text-base sm:text-xl font-bold text-foreground leading-tight">
+            <h2 className="text-sm sm:text-xl font-bold text-foreground">
               {language === 'ar' ? 'طلب انضمام كطبيب' : 'Doctor Join Request'}
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="w-9 h-9 rounded-lg hover:bg-muted flex items-center justify-center transition-colors flex-shrink-0"
+            className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg hover:bg-muted flex items-center justify-center transition-colors flex-shrink-0"
           >
-            <X size={20} />
+            <X className="w-5 h-5" />
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="p-3 sm:p-6 space-y-2.5 sm:space-y-4 pb-20 sm:pb-6">
           {error && (
-            <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-xs sm:text-sm">
+            <div className="p-2 sm:p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-xs">
               {error}
             </div>
           )}
 
-          <div className="grid grid-cols-1 gap-3.5 sm:gap-4">
+          <div className="grid grid-cols-1 gap-2.5 sm:gap-4">
             {/* Name in Arabic */}
-            <div className="space-y-1.5">
-              <label className="block text-xs sm:text-sm font-semibold text-foreground">
+            <div className="space-y-1">
+              <label className="block text-xs font-semibold text-foreground">
                 {language === 'ar' ? 'الاسم بالعربي' : 'Name in Arabic'} <span className="text-red-500">*</span>
               </label>
               <input
@@ -158,15 +158,15 @@ const DoctorRequestForm = ({ onClose }: DoctorRequestFormProps) => {
                 name="nameAr"
                 value={formData.nameAr}
                 onChange={handleChange}
-                className="w-full px-3 sm:px-4 py-2.5 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+                className="w-full px-3 py-2 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
                 placeholder={language === 'ar' ? 'د. أحمد محمد' : 'Dr. Ahmed Mohamed'}
                 required
               />
             </div>
 
             {/* Name in English */}
-            <div className="space-y-1.5">
-              <label className="block text-xs sm:text-sm font-semibold text-foreground">
+            <div className="space-y-1">
+              <label className="block text-xs font-semibold text-foreground">
                 {language === 'ar' ? 'الاسم بالإنجليزي' : 'Name in English'} <span className="text-red-500">*</span>
               </label>
               <input
@@ -174,15 +174,15 @@ const DoctorRequestForm = ({ onClose }: DoctorRequestFormProps) => {
                 name="nameEn"
                 value={formData.nameEn}
                 onChange={handleChange}
-                className="w-full px-3 sm:px-4 py-2.5 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+                className="w-full px-3 py-2 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
                 placeholder="Dr. Ahmed Mohamed"
                 required
               />
             </div>
 
             {/* Email */}
-            <div className="space-y-1.5">
-              <label className="block text-xs sm:text-sm font-semibold text-foreground">
+            <div className="space-y-1">
+              <label className="block text-xs font-semibold text-foreground">
                 {language === 'ar' ? 'البريد الإلكتروني' : 'Email'} <span className="text-red-500">*</span>
               </label>
               <input
@@ -190,15 +190,15 @@ const DoctorRequestForm = ({ onClose }: DoctorRequestFormProps) => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-3 sm:px-4 py-2.5 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+                className="w-full px-3 py-2 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
                 placeholder="doctor@example.com"
                 required
               />
             </div>
 
             {/* WhatsApp Phone */}
-            <div className="space-y-1.5">
-              <label className="block text-xs sm:text-sm font-semibold text-foreground">
+            <div className="space-y-1">
+              <label className="block text-xs font-semibold text-foreground">
                 {language === 'ar' ? 'رقم الواتساب (11 رقم)' : 'WhatsApp Number (11 digits)'} <span className="text-red-500">*</span>
               </label>
               <input
@@ -207,22 +207,22 @@ const DoctorRequestForm = ({ onClose }: DoctorRequestFormProps) => {
                 value={formData.phone}
                 onChange={handleChange}
                 maxLength={11}
-                className="w-full px-3 sm:px-4 py-2.5 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+                className="w-full px-3 py-2 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
                 placeholder="01xxxxxxxxx"
                 required
               />
             </div>
 
             {/* Specialization */}
-            <div className="space-y-1.5">
-              <label className="block text-xs sm:text-sm font-semibold text-foreground">
+            <div className="space-y-1">
+              <label className="block text-xs font-semibold text-foreground">
                 {language === 'ar' ? 'التخصص' : 'Specialization'} <span className="text-red-500">*</span>
               </label>
               <select
                 name="specialization"
                 value={formData.specialization}
                 onChange={handleChange}
-                className="w-full px-3 sm:px-4 py-2.5 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+                className="w-full px-3 py-2 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
                 required
               >
                 <option value="">{language === 'ar' ? 'اختر التخصص' : 'Select Specialization'}</option>
@@ -235,8 +235,8 @@ const DoctorRequestForm = ({ onClose }: DoctorRequestFormProps) => {
             </div>
 
             {/* Consultation Price */}
-            <div className="space-y-1.5">
-              <label className="block text-xs sm:text-sm font-semibold text-foreground">
+            <div className="space-y-1">
+              <label className="block text-xs font-semibold text-foreground">
                 {language === 'ar' ? 'سعر الكشف (جنيه)' : 'Consultation Price (EGP)'} <span className="text-red-500">*</span>
               </label>
               <input
@@ -244,22 +244,22 @@ const DoctorRequestForm = ({ onClose }: DoctorRequestFormProps) => {
                 name="price"
                 value={formData.price}
                 onChange={handleChange}
-                className="w-full px-3 sm:px-4 py-2.5 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+                className="w-full px-3 py-2 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
                 placeholder="200"
                 required
               />
             </div>
 
             {/* Governorate */}
-            <div className="space-y-1.5">
-              <label className="block text-xs sm:text-sm font-semibold text-foreground">
+            <div className="space-y-1">
+              <label className="block text-xs font-semibold text-foreground">
                 {language === 'ar' ? 'المحافظة' : 'Governorate'} <span className="text-red-500">*</span>
               </label>
               <select
                 name="governorate"
                 value={formData.governorate}
                 onChange={handleChange}
-                className="w-full px-3 sm:px-4 py-2.5 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+                className="w-full px-3 py-2 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
                 required
               >
                 <option value="">{language === 'ar' ? 'اختر المحافظة' : 'Select Governorate'}</option>
@@ -270,8 +270,8 @@ const DoctorRequestForm = ({ onClose }: DoctorRequestFormProps) => {
             </div>
 
             {/* Detailed Address */}
-            <div className="space-y-1.5">
-              <label className="block text-xs sm:text-sm font-semibold text-foreground">
+            <div className="space-y-1">
+              <label className="block text-xs font-semibold text-foreground">
                 {language === 'ar' ? 'العنوان التفصيلي' : 'Detailed Address'} <span className="text-red-500">*</span>
               </label>
               <input
@@ -279,56 +279,56 @@ const DoctorRequestForm = ({ onClose }: DoctorRequestFormProps) => {
                 name="address"
                 value={formData.address}
                 onChange={handleChange}
-                className="w-full px-3 sm:px-4 py-2.5 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+                className="w-full px-3 py-2 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
                 placeholder={language === 'ar' ? 'شارع، مبنى، رقم' : 'Street, Building, Number'}
                 required
               />
             </div>
 
             {/* Brief Bio */}
-            <div className="space-y-1.5">
-              <label className="block text-xs sm:text-sm font-semibold text-foreground">
+            <div className="space-y-1">
+              <label className="block text-xs font-semibold text-foreground">
                 {language === 'ar' ? 'نبذة مختصرة' : 'Brief Bio'} <span className="text-red-500">*</span>
               </label>
               <textarea
                 name="bio"
                 value={formData.bio}
                 onChange={handleChange}
-                rows={3}
-                className="w-full px-3 sm:px-4 py-2.5 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none text-sm"
+                rows={2}
+                className="w-full px-3 py-2 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none text-sm"
                 placeholder={language === 'ar' ? 'نبذة مختصرة عن خبرتك...' : 'Brief description of your experience...'}
                 required
               />
             </div>
 
             {/* Additional Info (Optional) */}
-            <div className="space-y-1.5">
-              <label className="block text-xs sm:text-sm font-semibold text-foreground">
+            <div className="space-y-1">
+              <label className="block text-xs font-semibold text-foreground">
                 {language === 'ar' ? 'معلومات إضافية (اختياري)' : 'Additional Information (Optional)'}
               </label>
               <textarea
                 name="additionalInfo"
                 value={formData.additionalInfo}
                 onChange={handleChange}
-                rows={3}
-                className="w-full px-3 sm:px-4 py-2.5 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none text-sm"
-                placeholder={language === 'ar' ? 'أي معلومات إضافية (الشهادات، الخبرات، إلخ...)' : 'Any additional information (certificates, experience, etc...)'}
+                rows={2}
+                className="w-full px-3 py-2 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none text-sm"
+                placeholder={language === 'ar' ? 'أي معلومات إضافية...' : 'Any additional information...'}
               />
             </div>
           </div>
 
-          <div className="flex flex-col-reverse sm:flex-row gap-2.5 sm:gap-3 pt-3 sm:pt-4">
+          <div className="fixed bottom-0 left-0 right-0 sm:relative flex flex-col-reverse sm:flex-row gap-2 sm:gap-3 pt-3 sm:pt-4 bg-card p-3 sm:p-0 border-t sm:border-t-0 border-border">
             <button
               type="button"
               onClick={onClose}
-              className="w-full sm:flex-1 px-5 py-2.5 rounded-lg border border-input hover:bg-muted transition-colors font-medium text-sm"
+              className="w-full sm:flex-1 px-4 py-2.5 rounded-lg border border-input hover:bg-muted transition-colors font-medium text-sm"
             >
               {language === 'ar' ? 'إلغاء' : 'Cancel'}
             </button>
             <button
               type="submit"
               disabled={loading}
-              className="w-full sm:flex-1 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity disabled:opacity-50 text-sm shadow-lg shadow-primary/20"
+              className="w-full sm:flex-1 px-4 py-2.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity disabled:opacity-50 text-sm shadow-lg shadow-primary/20"
             >
               {loading 
                 ? (language === 'ar' ? 'جاري الإرسال...' : 'Submitting...') 
